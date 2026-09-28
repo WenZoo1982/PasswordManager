@@ -6,7 +6,7 @@
 
 ## 当前版本
 
-**v1.1.0**
+**v1.2.0**
 
 ## 功能
 
@@ -64,11 +64,23 @@
 
 > 本项目为个人本地密码管理工具，并不是经过专业安全审计的商业密码管理产品。请根据自己的安全需求决定是否使用。
 
+### 更新检查
+
+- 程序启动时自动检查最新版本
+- 关于窗口支持手动检查更新
+- 发现新版本时提示用户
+- 可以打开 GitHub 发布页面获取新版本
+- 更新检查失败不会影响程序正常使用
+
 ## 使用方式
 
 ### 1. 下载
 
 从 GitHub Releases 下载对应版本。
+
+**当前最新版本：v1.2.0**
+
+[下载 PasswordManager v1.2.0](https://github.com/WenZoo1982/PasswordManager/releases/tag/v1.2.0?utm_source=chatgpt.com)
 
 发布版本采用 Windows x64 自包含方式，不要求另外安装 .NET Runtime。
 
@@ -158,7 +170,7 @@ config.json
 
 详细内容请参见：
 
-```
+```text
 LICENSE.txt
 ```
 
