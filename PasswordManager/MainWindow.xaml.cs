@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace PasswordManager
@@ -27,6 +29,55 @@ namespace PasswordManager
                 .Version?
                 .ToString(3)
                 ?? "未知版本";
+        }
+
+        private async void Window_Loaded(
+            object sender,
+            RoutedEventArgs e)
+        {
+            try
+            {
+                string currentVersion =
+                    GetVersion();
+
+                UpdateInfo? updateInfo =
+                    await UpdateChecker.CheckAsync(
+                        currentVersion);
+
+                if (updateInfo == null)
+                {
+                    return;
+                }
+
+                if (!updateInfo.HasUpdate)
+                {
+                    return;
+                }
+
+                MessageBoxResult result =
+                    MessageBox.Show(
+                        this,
+                        $"发现新版本：v{updateInfo.LatestVersion}\n\n" +
+                        $"当前版本：v{updateInfo.CurrentVersion}\n\n" +
+                        "是否打开 GitHub 发布页面？",
+                        "发现新版本",
+                        MessageBoxButton.YesNo,
+                        MessageBoxImage.Information);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    Process.Start(
+                        new ProcessStartInfo
+                        {
+                            FileName = updateInfo.ReleaseUrl,
+                            UseShellExecute = true
+                        });
+                }
+            }
+            catch
+            {
+                // 自动检查更新失败时不影响程序正常使用。
+            }
         }
 
         private void LoadPasswordEntries()

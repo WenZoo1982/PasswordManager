@@ -6,7 +6,8 @@
         Height="650"
         MinWidth="760"
         MinHeight="500"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded">
 
     <Grid Background="#F5F6F8">
 

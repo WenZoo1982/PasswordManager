@@ -34,11 +34,21 @@
                     <!-- 软件版本 -->
 
                     <TextBlock x:Name="VersionText"
-                               Text="版本 1.01.0"
+                               Text="版本 1.2.0"
                                FontSize="14"
                                Foreground="#777777"
                                HorizontalAlignment="Center"
-                               Margin="0,8,0,24"/>
+                               Margin="0,8,0,10"/>
+
+                    <!-- 检查更新 -->
+
+                    <Button x:Name="CheckUpdateButton"
+                            Content="检查更新"
+                            Width="110"
+                            Height="38"
+                            HorizontalAlignment="Center"
+                            Margin="0,0,0,24"
+                            Click="CheckUpdateButton_Click"/>
 
                     <!-- 软件简介 -->
 
