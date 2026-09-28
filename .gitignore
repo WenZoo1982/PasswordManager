@@ -1,0 +1,6 @@
+bin/
+obj/
+*.user
+storage*.dat
+config.json
+.vs/

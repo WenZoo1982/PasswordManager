@@ -1,0 +1,137 @@
+﻿<Window x:Class="PasswordManager.MigrateVaultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="迁移密码库"
+        Width="560"
+        Height="500"
+        MinWidth="480"
+        MinHeight="440"
+        ResizeMode="CanResize"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Background="#F5F6F8">
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled">
+
+            <Border Width="480"
+                    MaxWidth="650"
+                    Margin="20"
+                    Padding="30"
+                    Background="White"
+                    CornerRadius="10"
+                    HorizontalAlignment="Center">
+
+                <StackPanel>
+
+                    <TextBlock Text="迁移密码库"
+                               FontSize="22"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,8"/>
+
+                    <TextBlock Text="将当前密码库复制到新的位置，并更新软件配置。"
+                               FontSize="14"
+                               Foreground="#777777"
+                               HorizontalAlignment="Center"
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,24"/>
+
+
+                    <!-- 当前密码库 -->
+
+                    <TextBlock Text="当前密码库"
+                               FontSize="14"
+                               FontWeight="SemiBold"
+                               Margin="0,0,0,8"/>
+
+                    <TextBox x:Name="CurrentPathBox"
+                             MinHeight="60"
+                             Padding="10"
+                             IsReadOnly="True"
+                             TextWrapping="Wrap"
+                             VerticalScrollBarVisibility="Auto"/>
+
+
+                    <!-- 新密码库 -->
+
+                    <TextBlock Text="新的密码库位置"
+                               FontSize="14"
+                               FontWeight="SemiBold"
+                               Margin="0,18,0,8"/>
+
+                    <Grid>
+
+                        <TextBox x:Name="NewPathBox"
+                                 Height="38"
+                                 Padding="10"
+                                 VerticalContentAlignment="Center"
+                                 IsReadOnly="True"
+                                 Margin="0,0,78,0"
+                                 Text="请选择路径"/>
+
+                        <Button Content="浏览"
+                                Width="70"
+                                Height="30"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Margin="0,0,4,0"
+                                Click="ChooseFileButton_Click"/>
+
+                    </Grid>
+
+
+                    <!-- 提醒 -->
+
+                    <Border Background="#FFF8E1"
+                            BorderBrush="#F0D98C"
+                            BorderThickness="1"
+                            CornerRadius="6"
+                            Padding="12"
+                            Margin="0,20,0,0">
+
+                        <TextBlock Text="迁移成功后，原密码库文件不会自动删除。建议确认新密码库能够正常使用后，再手动处理旧文件。"
+                                   FontSize="13"
+                                   Foreground="#6B5700"
+                                   TextWrapping="Wrap"/>
+
+                    </Border>
+
+
+                    <!-- 错误 / 状态 -->
+
+                    <TextBlock x:Name="StatusText"
+                               Text=""
+                               Foreground="#D93025"
+                               TextWrapping="Wrap"
+                               HorizontalAlignment="Center"
+                               Margin="0,14,0,0"/>
+
+
+                    <!-- 按钮 -->
+
+                    <Grid Margin="0,20,0,0">
+
+                        <Button Content="取消"
+                                Width="90"
+                                Height="38"
+                                HorizontalAlignment="Left"
+                                Click="CancelButton_Click"/>
+
+                        <Button Content="开始迁移"
+                                Width="100"
+                                Height="38"
+                                HorizontalAlignment="Right"
+                                Click="MigrateButton_Click"/>
+
+                    </Grid>
+
+                </StackPanel>
+
+            </Border>
+
+        </ScrollViewer>
+
+    </Grid>
+
+</Window>
